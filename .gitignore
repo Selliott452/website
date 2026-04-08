@@ -39,3 +39,15 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### Claude ###
+.claude/
+
+### Vaadin ###
+src/main/frontend/generated/
+src/main/frontend/index.html
+src/main/bundles/
+pnpm-lock.yaml
+package.json
+package-lock.json
+src/main/resources/META-INF/resources/VAADIN/
