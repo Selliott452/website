@@ -54,6 +54,8 @@ class RelicsView : VerticalLayout() {
                 "Slayer reward points are 5x from tasks, and you aren't required to complete 5 tasks before earning points.",
                 "Superior Slayer monsters will appear at a rate of 1/50."
             ),
+            NavCard("Bank Heist", "Teleport to any bank, bank chest, or deposit box, ignoring wilderness teleport restrictions.", BankHeistView::class.java,
+                "$RELICS_IMG/bank-heist.png"),
             NavCard("Evil Eye", "Teleport directly to any boss or raid entrance from your combat achievements list.", EvilEyeView::class.java,
                 "$RELICS_IMG/evil-eye.png"),
             NavCard("Map of Alacrity", "Teleport to agility shortcuts while keeping their level requirements.", MapOfAlacrityView::class.java,
