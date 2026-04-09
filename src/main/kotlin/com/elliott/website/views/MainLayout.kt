@@ -1,21 +1,24 @@
 package com.elliott.website.views
 
+import com.elliott.website.views.runescape.DemonicPactsView
+import com.elliott.website.views.runescape.LeaguesView
+import com.elliott.website.views.runescape.RelicsView
 import com.vaadin.flow.component.applayout.AppLayout
 import com.vaadin.flow.component.applayout.DrawerToggle
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.button.ButtonVariant
 import com.vaadin.flow.component.html.H2
+import com.vaadin.flow.component.html.Hr
 import com.vaadin.flow.component.icon.Icon
 import com.vaadin.flow.component.icon.VaadinIcon
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
-import com.vaadin.flow.component.tabs.Tab
-import com.vaadin.flow.component.tabs.Tabs
+import com.vaadin.flow.component.sidenav.SideNav
+import com.vaadin.flow.component.sidenav.SideNavItem
 import com.vaadin.flow.router.AfterNavigationEvent
 import com.vaadin.flow.router.AfterNavigationObserver
 import com.vaadin.flow.router.PageTitle
-import com.vaadin.flow.router.RouterLink
 
 class MainLayout : AppLayout(), AfterNavigationObserver {
 
@@ -64,12 +67,27 @@ class MainLayout : AppLayout(), AfterNavigationObserver {
     }
 
     private fun createDrawer() {
-        val tabs = Tabs(Tab(RouterLink("Home", LandingView::class.java))).apply {
-            orientation = Tabs.Orientation.VERTICAL
-            setWidthFull()
+        val mainNav = SideNav().apply {
+            addItem(SideNavItem("Home", LandingView::class.java))
         }
 
-        addToDrawer(VerticalLayout(tabs).apply {
+        val runescapeNav = SideNav().apply {
+            addItem(
+                SideNavItem("RuneScape").apply {
+                    addItem(
+                        SideNavItem("Leagues", LeaguesView::class.java).apply {
+                            addItem(
+                                SideNavItem("Demonic Pacts", DemonicPactsView::class.java).apply {
+                                    addItem(SideNavItem("Relics", RelicsView::class.java))
+                                }
+                            )
+                        }
+                    )
+                }
+            )
+        }
+
+        addToDrawer(VerticalLayout(mainNav, Hr(), runescapeNav).apply {
             setSizeFull()
             isPadding = false
             isSpacing = false
