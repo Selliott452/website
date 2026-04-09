@@ -1,31 +1,27 @@
-package com.elliott.website.views
+package com.elliott.website.views.runescape
 
+import com.elliott.website.views.MainLayout
 import com.elliott.website.views.components.NavCard
-import com.elliott.website.views.runescape.LeaguesView
 import com.vaadin.flow.component.html.H2
-import com.vaadin.flow.component.html.H3
-import com.vaadin.flow.component.html.Paragraph
-import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.PageTitle
 import com.vaadin.flow.router.Route
 
-@Route(value = "", layout = MainLayout::class)
-@PageTitle("Home")
-class LandingView : VerticalLayout() {
-
+@Route(value = "leagues/demonic-pacts", layout = MainLayout::class)
+@PageTitle("Demonic Pacts")
+class DemonicPactsView : VerticalLayout() {
     init {
-        defaultHorizontalComponentAlignment = Alignment.CENTER
-        addClassName("landing-view")
+        addClassName("content-view")
         add(
+            H2("Demonic Pacts"),
             VerticalLayout().apply {
                 addClassName("nav-card-section")
                 isPadding = false
                 add(
                     HorizontalLayout().apply {
                         addClassName("nav-card-grid")
-                        add(NavCard("RuneScape Leagues", "Explore relics and strategies for the Demonic Pacts league.", LeaguesView::class.java))
+                        add(NavCard("Relics", "Information on relics available in the Demonic Pacts league.", RelicsView::class.java))
                     }
                 )
             }

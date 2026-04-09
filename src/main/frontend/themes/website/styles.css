@@ -19,5 +19,121 @@ html {
 
 .landing-view {
   text-align: center;
-  padding-top: var(--lumo-space-xl);
+}
+
+.content-view {
+  padding: var(--lumo-space-l);
+}
+
+.nav-card-section {
+  width: 100%;
+  margin-top: var(--lumo-space-l);
+  text-align: left;
+}
+
+.nav-card-grid {
+  flex-wrap: wrap;
+  gap: var(--lumo-space-m);
+  padding: 0;
+}
+
+.nav-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: stretch;
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  gap: var(--lumo-space-m);
+  padding: var(--lumo-space-m) var(--lumo-space-l);
+  border: 1px solid var(--lumo-contrast-30pct);
+  border-radius: var(--lumo-border-radius-l);
+  background: var(--lumo-contrast-5pct);
+  min-width: 220px;
+  max-width: 340px;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  box-shadow: var(--lumo-box-shadow-xs);
+}
+
+.nav-card:hover {
+  box-shadow: var(--lumo-box-shadow-m);
+  border-color: var(--lumo-primary-color);
+  background: var(--lumo-primary-color-10pct);
+}
+
+.nav-card-image {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.nav-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-card-title {
+  margin: 0;
+  font-size: var(--lumo-font-size-l);
+  color: var(--lumo-primary-text-color);
+}
+
+.nav-card-icon {
+  color: var(--lumo-secondary-text-color);
+  flex-shrink: 0;
+}
+
+.nav-card-description {
+  margin: var(--lumo-space-xs) 0 0 0;
+  font-size: var(--lumo-font-size-s);
+  color: var(--lumo-secondary-text-color);
+}
+
+.tier-section {
+  width: 100%;
+  margin-top: var(--lumo-space-l);
+}
+
+.tier-section h3 {
+  margin: 0 0 var(--lumo-space-s) 0;
+  font-size: var(--lumo-font-size-m);
+  color: var(--lumo-secondary-text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tier-passive-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--lumo-space-s);
+  padding: var(--lumo-space-s) var(--lumo-space-m);
+  margin-bottom: var(--lumo-space-m);
+  background: var(--lumo-success-color-10pct);
+  border: 1px solid var(--lumo-success-color-50pct);
+  border-radius: var(--lumo-border-radius-m);
+  color: var(--lumo-success-text-color);
+}
+
+.tier-passive-banner ul {
+  margin: 0;
+  padding-left: var(--lumo-space-m);
+}
+
+.tier-passive-banner li {
+  font-size: var(--lumo-font-size-s);
+  line-height: var(--lumo-line-height-m);
 }
