@@ -44,9 +44,12 @@ class MainLayout : AppLayout(), AfterNavigationObserver {
             setAriaLabel("Home")
         }
 
-        val darkModeToggle = Button(Icon(VaadinIcon.MOON)).apply {
+        val darkModeToggle = Button(Icon(VaadinIcon.SUN_O)).apply {
             addThemeVariants(ButtonVariant.LUMO_TERTIARY)
             setAriaLabel("Toggle dark mode")
+        }
+        darkModeToggle.addAttachListener {
+            darkModeToggle.ui.ifPresent { it.element.themeList.add("dark") }
         }
         darkModeToggle.addClickListener {
             val isDark = !darkModeToggle.ui.get().element.themeList.contains("dark")

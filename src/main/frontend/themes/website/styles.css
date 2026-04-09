@@ -137,3 +137,53 @@ html {
   font-size: var(--lumo-font-size-s);
   line-height: var(--lumo-line-height-m);
 }
+
+.back-link {
+  font-size: var(--lumo-font-size-s);
+  color: var(--lumo-secondary-text-color);
+  text-decoration: none;
+  margin-bottom: var(--lumo-space-xs);
+}
+
+.back-link:hover {
+  color: var(--lumo-primary-text-color);
+}
+
+.relic-detail-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--lumo-space-l);
+  padding: var(--lumo-space-l);
+  border: 1px solid var(--lumo-error-color-50pct);
+  border-radius: var(--lumo-border-radius-l);
+  background: var(--lumo-error-color-10pct);
+  width: 100%;
+  box-shadow: var(--lumo-box-shadow-xs);
+  margin-top: var(--lumo-space-m);
+}
+
+.relic-detail-image {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.relic-detail-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.relic-detail-content ul {
+  margin: 0;
+  padding-left: var(--lumo-space-l);
+}
+
+.relic-detail-content li {
+  font-size: var(--lumo-font-size-m);
+  color: var(--lumo-body-text-color);
+  line-height: var(--lumo-line-height-m);
+  margin-bottom: var(--lumo-space-xs);
+}

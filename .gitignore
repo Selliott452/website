@@ -42,6 +42,7 @@ out/
 
 ### Claude ###
 .claude/
+CLAUDE.md
 
 ### Vaadin ###
 src/main/frontend/generated/
