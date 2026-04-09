@@ -47,6 +47,10 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.named("jib") {
+	dependsOn("vaadinBuildFrontend")
+}
+
 jib {
 	from {
 		image = "eclipse-temurin:21-jre"
