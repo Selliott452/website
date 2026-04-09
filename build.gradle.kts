@@ -4,6 +4,7 @@ plugins {
 	id("org.springframework.boot") version "4.0.5"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("com.vaadin") version "25.1.0"
+	id("com.google.cloud.tools.jib") version "3.4.5"
 }
 
 group = "com.elliott"
@@ -44,4 +45,18 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+jib {
+	from {
+		image = "eclipse-temurin:21-jre"
+	}
+	to {
+		image = "us-central1-docker.pkg.dev/speedy-center-492818-p9/website/website"
+		tags = setOf("latest", project.version.toString())
+	}
+	container {
+		ports = listOf("8080")
+		jvmFlags = listOf("-Dvaadin.productionMode=true")
+	}
 }
