@@ -23,10 +23,12 @@ jobs:
           java-version: 21
 
       - name: Authenticate to Google Cloud
+        id: auth
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
           service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+          token_format: access_token
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
@@ -38,7 +40,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build and push with Jib
-        run: ./gradlew jib -Pvaadin.productionMode=true
+        run: ./gradlew jib -Pvaadin.productionMode=true -Djib.to.auth.username=oauth2accesstoken -Djib.to.auth.password=${{ steps.auth.outputs.access_token }}
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
